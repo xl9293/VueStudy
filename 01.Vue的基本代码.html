@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- 1.导入Vue 的包 -->
+    <script src="./lib/vue.min.js"></script>
+
+</head>
+<body>
+    <!-- 将来 new 的 Vue 实例,会控制这个 元素中的所有内容 -->
+    <!-- Vue 实例所控制这个元素区域,就是我们的V -->
+    <div id="app">
+        <p>{{ msg }}</p>
+    </div>
+
+    <script>
+    //2.创建一个Vue的实例
+    //当我们导入包之后,在游览器的内存中,就多了一个Vue实力,要控制页面上的哪个区域
+    //注意:我们 new 出来的这个vm 对象,就是我们 mvvm 中的vm调度者
+   var vm = new Vue({
+        el:'#app', //表示,当前我们new的这个Vue实例,要控制页面上的哪个区域
+        //这里的 data 就是 mvvm 中的m ,专门用来保存每个页面的数据的
+        data:{
+            //data 属性中,存放的是 el 中要用到的数据
+            msg:'欢迎学习Vue,XL!'//通过Vue 提供的指令,很方便的就能把数据渲染到页面做DOM元素了[前端的Vue之类的框架,不提倡我们去手动操作DOM元素了]
+        }
+    })
+    </script>
+</body>
+</html>
