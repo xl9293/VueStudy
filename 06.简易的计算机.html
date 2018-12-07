@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,54 @@
     <script src="./lib/vue.min.js"></script>
 
 </head>
+
 <body>
-    <div id = 'app'>
-
-
+    <div id='app'>
+        <input type="text" v-model="n1" name="" id="">
+        <select v-model="opt" name="" id="">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" v-model="n2" name="" id="">
+        <input type="button" value="=" @click="calc">
+        <input type="text" v-model="result" name="" id="">
     </div>
     <script>
         var vm = new new Vue({
-            data() {
-                el:'#app'
-                msg: 
-                
+            el: '#app',
+            data: {
+                n1: 0,
+                n2: 0,
+                result: 0,
+                opt: '+'
+
             },
+            methods: {
+               calc() {
+                     /*switch (this.opt) {
+                        case '+':
+                            this.result = parseInt(this.n1) + parseInt(this.n2)
+                            break;
+                        case '-':
+                        this.result = parseInt(this.n1) - parseInt(this.n2)
+                            break;
+                        case '*':
+                        this.result = parseInt(this.n1) * parseInt(this.n2)
+                            break;
+                        case '/':
+                        this.result = parseInt(this.n1) / parseInt(this.n2)
+                            break;
+                    }*/
+                    // 这是投机取巧的方式，正式开发中尽量少用
+                    var codeStr = 'parseInt(this.n1)' + this.opt + 'parseInt(this.n2)'
+                    this.result = eval(codeStr)
+                }
+             
+            }
         });
     </script>
 </body>
+
 </html>
