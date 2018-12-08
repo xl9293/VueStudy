@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./lib/vue.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <my-component></my-component>
+
+  </div>
+
+  <script>
+    Vue.component("my-component",{
+        template:"<div>组件化开发</div>"
+    })
+    var vm = new Vue({
+      el: "#app"        
+    })
+  </script>
+
+</body>
+
+</body>
+
+</html>

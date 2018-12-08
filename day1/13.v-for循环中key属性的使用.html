@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue.min.js"></script>
+</head>
+
+<body>
+  <div id='app'>
+    <div>
+      <label>Id:
+        <input type="text" v-model="newID">
+      </label>
+
+      <label>Name:
+        <input type="text" v-model="newName">
+      </label>
+
+      <input type="button" value="添加" @click="add">
+
+    </div>
+
+    <!--  -->
+    <!-- 在组件中,使用v-for循环的时候,或者一些特殊情况中,如果v-for有问题,必须使用v-for的同事,指定唯一的字符串/数字 类型:key值 -->
+    <p v-for="(item,index) in list" :key="item">
+      <input type="checkbox">
+      {{item.id}}---{{item.name}}
+    </p>
+
+  </div>
+  <script>
+    var vm = new Vue({
+
+      el: '#app',
+      data: {
+        newID: '',
+        newName: '',
+        list: [{
+            id: 1,
+            name: '李四'
+          },
+          {
+            id: 2,
+            name: '和珅'
+          },
+          {
+            id: 3,
+            name: '乾隆'
+          },
+          {
+            id: 4,
+            name: '康熙'
+          },
+          {
+            id: 5,
+            name: '大哥'
+          }
+        ]
+      },
+      methods: {
+        add() {
+          // 向末尾加元素
+          // this.list.push({
+          //   id: this.newID,
+          //   name: this.newName
+          // })
+          //向前面加元素
+          this.list.unshift({
+            id: this.newID,
+            name: this.newName
+          })
+        }
+      }
+
+    });
+  </script>
+</body>
+
+</html>
